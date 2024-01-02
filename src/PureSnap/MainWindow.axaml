@@ -1,0 +1,37 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Width="800" Height="450"
+        x:Class="PureSnap.MainWindow"
+		xmlns:wndw="clr-namespace:PureSnap"
+        Title="PureSnap" DataContext="this" x:CompileBindings="False" CanResize="False">
+	<Window.Styles>
+		<Styles>
+			<Style Selector="Window">
+				<Setter Property="Background">
+					<ImageBrush Source="avares://PureSnap/Images/BG.png"  Stretch="Fill"/>
+				</Setter>
+			</Style>
+		</Styles>
+	</Window.Styles>
+	<Grid ColumnDefinitions="*">
+		<wndw:EditorWindow Name="Editor" IsVisible="{Binding !IsStartScreen}"/>
+		<Grid Name="StartScreen" RowDefinitions="0.9*,0.3*,0.8*" ColumnDefinitions="*" IsVisible="{Binding IsStartScreen}" DataContext="this">
+			<Image Source="/Images/Logo.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,10,10,10" Width="400"/>
+			<Button Name="BtnEdit" Command="{Binding EditImage}" Grid.Row="1" Width="400" Background="#15161B" HorizontalAlignment="Center" FontSize="35" FontWeight="Bold" Foreground="#DFDFDF" VerticalContentAlignment="Center" CornerRadius="5" HorizontalContentAlignment="Center" VerticalAlignment="Stretch">Edit a Screen</Button>
+			<Border Grid.Row="2" Background="#15161B" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Width="400" Height="150">
+				<StackPanel Spacing="2" Margin="10">
+					<TextBlock TextWrapping="Wrap" FontSize="18" Foreground="#4B4D58" FontWeight="Bold">
+						ToTake screenshot:
+					</TextBlock>
+					<TextBlock TextWrapping="Wrap" FontSize="20" Foreground="#727481" FontWeight="ExtraBold">
+						CTRL+SHIFT+Q
+					</TextBlock>
+				</StackPanel>
+
+			</Border>
+		</Grid>
+	</Grid>
+
+</Window>

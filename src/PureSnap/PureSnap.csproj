@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Images\BG.png" />
+    <None Remove="Images\Logo.png" />
+    <None Remove="Templates\Screens\ScreenMainTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Images\BG.png" />
+    <AvaloniaResource Include="Images\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Screens\ScreenMainTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.0.6" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.0.6" />
+    <PackageReference Include="Avalonia.HtmlRenderer" Version="11.0.0" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.6" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.6" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.6" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2210.55" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Styles\" />
+  </ItemGroup>
+</Project>

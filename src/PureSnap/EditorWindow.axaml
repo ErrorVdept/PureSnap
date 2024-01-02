@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" Width="800" Height="450" Name="Editor"
+			 xmlns:av="clr-namespace:TheArtOfDev.HtmlRenderer.Avalonia;assembly=Avalonia.HtmlRenderer"
+			 xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+             x:Class="PureSnap.EditorWindow" Background="Transparent" x:CompileBindings="False">
+	<Grid ColumnDefinitions="200,*">
+		<Border Background="#15161B" CornerRadius="0,10,10,0">
+			<StackPanel Spacing="5" Margin="5">
+				<StackPanel Orientation="Horizontal" Height="40"  Spacing="5">
+					<Button Name="BackBtn" Height="28" Command="{Binding CloseEditImage}">&#x2B05;</Button>
+					
+					<Image Source="/Images/Logo.png" />
+				</StackPanel >
+				<Rectangle Width="200" Height="1" Fill="#1F2027" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+				<Button Name="LoadImageBtn" Command="{Binding LoadImage}" HorizontalAlignment="Stretch" >Load Image</Button>
+				<StackPanel Orientation="Horizontal" Height="40" Spacing="5"  HorizontalAlignment="Center">
+					<TextBlock  VerticalAlignment="Center">Ширина:</TextBlock>
+					<TextBox Name="ImgWidth" Text="{Binding ImageWidth}" FontSize="14" Padding="2" MaxWidth="80" Width="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0" VerticalAlignment="Center"></TextBox>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Height="40" Spacing="5" HorizontalAlignment="Center">
+					<TextBlock  VerticalAlignment="Center">Высота:</TextBlock>
+					<TextBox Name="ImgHeight" Text="{Binding ImageHeight}" FontSize="14" Padding="2"  MaxWidth="80" Width="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0" VerticalAlignment="Center"></TextBox>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Height="40" Spacing="5">
+					<TextBlock  VerticalAlignment="Center">Отступ от края:</TextBlock>
+					<TextBox FontSize="14" Padding="2" MaxWidth="80" Width="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0" VerticalAlignment="Center"></TextBox>
+				</StackPanel>
+			</StackPanel>
+		</Border>
+
+
+		<!--<av:HtmlPanel Grid.Column="1" x:Name="_htmlPanel" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" >-->
+			<wv2:WebView2 Name="_htmlPanel" Source="https://www.microsoft.com"/>	
+		
+	</Grid>
+</UserControl>

@@ -1,0 +1,37 @@
+﻿<Page x:Class="PureSnap.Pages.StartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PureSnap.Pages"
+      mc:Ignorable="d" 
+      Height="450" Width="800"
+      Title="StartPage">
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Name="StartScreen" Visibility="{Binding IsStartScreen}" DataContext="this">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.9*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.8*"/>
+            </Grid.RowDefinitions>
+            <Image Source="/Images/Logo.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,10,10,10" Width="400"/>
+            <Button Name="BtnEdit" Grid.Row="1" Width="400" Background="#15161B" HorizontalAlignment="Center" FontSize="35" FontWeight="Bold" Foreground="#DFDFDF" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" Click="BtnEdit_Click">Edit a Screen</Button>
+            <Border Grid.Row="2" Background="#15161B" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Width="400" Height="150">
+                <StackPanel Margin="10">
+                    <TextBlock TextWrapping="Wrap" FontSize="18" Foreground="#4B4D58" FontWeight="Bold">
+				ToTake screenshot:
+                    </TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="20" Foreground="#727481" FontWeight="ExtraBold">
+				CTRL+SHIFT+Q
+                    </TextBlock>
+                </StackPanel>
+
+            </Border>
+        </Grid>
+    </Grid>
+</Page>
